@@ -179,6 +179,7 @@ CloudTrail:
 
 Destroy all infrastructure:
 ```
+cd terraform
 terraform destroy
 ```
 ---
@@ -186,3 +187,4 @@ terraform destroy
 ## Status
 
 Project completed end-to-end with automated infrastructure provisioning, CI/CD deployment, containerized runtime, logging, and audit visibility.
+
