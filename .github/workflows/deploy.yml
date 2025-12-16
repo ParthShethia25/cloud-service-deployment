@@ -22,8 +22,8 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          rsync -avz app docker ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:~/cloud-service/
-          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          rsync -avz -e "ssh -i ~/.ssh/id_rsa" app docker ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:~/cloud-service/
+          ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             cd ~/cloud-service
             docker stop cloud-service || true
             docker rm cloud-service || true
