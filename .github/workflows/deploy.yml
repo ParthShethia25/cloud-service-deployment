@@ -27,8 +27,9 @@ jobs:
             cd ~/cloud-service
             docker stop cloud-service || true
             docker rm cloud-service || true
-            docker build -t cloud-service .
+            docker build -t cloud-service -f docker/Dockerfile .
             docker run -d --name cloud-service -p 80:5000 cloud-service
           EOF
+
 
 
