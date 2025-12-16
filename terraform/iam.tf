@@ -22,3 +22,18 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   name = "cloud-service-instance-profile"
   role = aws_iam_role.ec2_role.name
 }
+
+resource "aws_iam_role_policy" "s3_write_logs" {
+  role = aws_iam_role.ec2_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect = "Allow"
+      Action = [
+        "s3:PutObject"
+      ]
+      Resource = "${aws_s3_bucket.service_logs.arn}/*"
+    }]
+  })
+}
