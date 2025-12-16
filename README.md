@@ -188,3 +188,7 @@ terraform destroy
 
 Project completed end-to-end with automated infrastructure provisioning, CI/CD deployment, containerized runtime, logging, and audit visibility.
 
+---
+## 📺 Demo Video
+[Watch the deployment walkthrough](https://youtu.be/6tJyh8GRcTQ)
+
