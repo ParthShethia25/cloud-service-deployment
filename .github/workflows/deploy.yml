@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          rsync -avz -e "ssh -i ~/.ssh/id_rsa" app docker ec2-user@${{ secrets.EC2_HOST }}:~/cloud-service/
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -r app docker ec2-user@${{ secrets.EC2_HOST }}:~/cloud-service
           ssh -i ~/.ssh/id_rsa ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
             cd ~/cloud-service
             docker stop cloud-service || true
@@ -30,4 +30,5 @@ jobs:
             docker build -t cloud-service .
             docker run -d --name cloud-service -p 80:5000 cloud-service
           EOF
+
 
