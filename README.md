@@ -56,9 +56,10 @@ terraform init
 ```
 
 Configure variables (terraform.tfvars):
+```
 key_name = "cloud-service-key"
 allowed_ssh_cidr = "<YOUR_PUBLIC_IPV4>/32"
-
+```
 Plan and apply:
 ```
 terraform plan
@@ -191,4 +192,5 @@ Project completed end-to-end with automated infrastructure provisioning, CI/CD d
 ---
 ## 📺 Demo Video
 [Watch the deployment walkthrough](https://youtu.be/6tJyh8GRcTQ)
+
 
